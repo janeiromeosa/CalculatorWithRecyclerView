@@ -2,4 +2,7 @@
     <string name="app_name">Calculator</string>
     <string name="hint_number">Please enter a Number</string>
     <string name="add">ADD</string>
+    <string name="minus_button">Minus</string>
+    <string name="divide_button">Divide</string>
+    <string name="multiply_button">Multiply</string>
 </resources>
