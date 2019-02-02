@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() { //set value that user entered into variable
             @Override
             public void onClick(View v) {
-                result = add(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
-                tvResult.setText("Result: " + result);
+                Add add = new Add(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+                result = add.calculate(etNumberOne.getText().toString(), etNumberTwo.getText().toString());                tvResult.setText("Result: " + result);
 
                 log.add("Result of Addition: " + result);
             }
@@ -57,7 +57,9 @@ public class MainActivity extends AppCompatActivity {
         btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                result = minus(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+
+                Minus minus = new Minus(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+                result = minus.calculate(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
 
                 tvResult.setText("Result: " + result);
 
@@ -68,7 +70,8 @@ public class MainActivity extends AppCompatActivity {
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                result = multiply(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+                Multiply multiply = new Multiply(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+                result = multiply.calculate(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
 
                 tvResult.setText("Result: "+ result);
 
@@ -80,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                result = divide(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+                Divide divide = new Divide(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+                result = divide.calculate(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
 
                 tvResult.setText("Result: " + result);
 
@@ -99,60 +103,4 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-    private String add(String numberOne, String numberTwo){
-        if (numberOne.equals("") || numberTwo.isEmpty()){
-            Toast.makeText(this, "Please enter a valid number", Toast.LENGTH_SHORT).show();
-
-            return null;
-        }
-
-        int a = Integer.parseInt(numberOne);
-        int b = Integer.parseInt(numberTwo);
-        int result = a + b;
-
-        return Integer.toString(result);
-    }
-
-    private String minus(String numberOne, String numberTwo){
-        if (numberOne.equals("") || numberTwo.isEmpty()){
-            Toast.makeText(this, "Please enter a valid number", Toast.LENGTH_SHORT).show();
-
-            return null;
-        }
-
-        int a = Integer.parseInt(numberOne);
-        int b = Integer.parseInt(numberTwo);
-        int result = a - b;
-
-        return Integer.toString(result);
-    }
-
-    private String multiply(String numberOne, String numberTwo){
-        if (numberOne.equals("") || numberTwo.isEmpty()){
-            Toast.makeText(this, "Please enter a valid number", Toast.LENGTH_SHORT).show();
-
-            return null;
-        }
-
-        int a = Integer.parseInt(numberOne);
-        int b = Integer.parseInt(numberTwo);
-        int result = a * b;
-
-        return Integer.toString(result);
-    }
-    private String divide(String numberOne, String numberTwo){
-        if (numberOne.equals("") || numberTwo.isEmpty()){
-            Toast.makeText(this, "Please enter a valid number", Toast.LENGTH_SHORT).show();
-
-            return null;
-        }
-
-        int a = Integer.parseInt(numberOne);
-        int b = Integer.parseInt(numberTwo);
-        int result = a / b;
-
-        return Integer.toString(result);
-    }
-
-}
+}// end of MainActivity Class
