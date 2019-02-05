@@ -98,6 +98,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LogsActivity.class);
                 intent.putStringArrayListExtra("LogsResult", (ArrayList<String>)log);
+                Bus bus = new Bus("Grey", "Black");
+                intent.putExtra("Bus", bus);
+
+                Room room = new Room("Training Room", 4);
+                intent.putExtra("Room", room);
                 startActivity(intent);
             }
         });
